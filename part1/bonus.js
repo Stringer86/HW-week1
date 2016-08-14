@@ -40,8 +40,21 @@ It'll take a few steps to solve this cipher. Have fun!
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
 function caesarShiftInt(integer) {
-  // YOUR CODE HERE
-}
+  if (integer < 97) {
+    throw('Error: integer too low')
+  } else if (integer > 122) {
+    throw('Error: integer too high')
+  } else {
+    convertedNum = integer + 13;
+    if (convertedNum > 122) {
+      convertedNum = (convertedNum - 122) + 96;
+    }
+  }
+  return convertedNum;
+
+  }
+  caesarShiftInt();
+
 
 // Define a function named caesarShiftChar that takes a one argument
 //    char (string of one character)
@@ -56,7 +69,16 @@ function caesarShiftInt(integer) {
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
 //
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode
+function caesarShiftChar(char) {
+  if (char.length === 1 && char.match(/[a-z]/i)) {
+    char = char.toLowerCase();
+    var ascii = caesarShiftInt(char.charCodeAt(0));
+    return String.fromCharCode(ascii);
+  } else {
+    return char  //right now this will work with all lowercase letters but not upperCase
 
+  }
+}
 
 
 
@@ -67,7 +89,13 @@ function caesarShiftInt(integer) {
 // 'Hello, there!', then return 'uryyb, gurer!'.
 //
 // HINT: You'll need a loop for this.
-
+function encodeMessage(message) {
+  var newMessage = '';
+  for (var i = 0; i < message.length; i++) {
+    newMessage += caesarShiftChar(message[i]);
+  }
+  return newMessage
+}
 
 
 
@@ -78,3 +106,7 @@ function caesarShiftInt(integer) {
 // 'uryyb, gurer!', then return 'Hello, there!'.
 //
 // HINT: Is there a way to use the encodeMessage() function?
+function decodeMessage(message) {
+  var newMessage = encodeMessage(message);
+  return newMessage;
+}

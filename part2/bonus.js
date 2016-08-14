@@ -7,6 +7,10 @@
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 function bigSum() {
   // YOUR CODE HERE
+  var sum = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    sum += arguments[i]
+  }
 }
 
 // Define a function named pluck that takes in two arguments.
