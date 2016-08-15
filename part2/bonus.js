@@ -51,18 +51,22 @@ function pluck(arr, key) {
 // { name: 'moe', age: 50, id: 1 } and ['name', 'age'], then return
 // { name: 'moe', age: 50 }.
 function pick(obj, keys) {
-  if (keys.indexOf("name") !== -1 && keys.indexOf("age") !== -1) {
-    for (var variable in obj) {
-      if (obj.hasOwnProperty(variable)) {
-        return obj[variable]
-      }
-    }
-  } else {
+  obj2 = {}
+  if (obj.length === 0) {
     return {};
   }
-}
+  for (var i = 0; i < keys.length; i++) {
+    if (keys[i] === 'name') {
+      obj2["name"] = obj["name"];
+    }
+    if (keys[i] === 'age') {
+      obj2["age"] = obj["age"];
+    }
+    }
+    return obj2;
+  }
 
-
+obj[arr[i][0]] = arr[i][1];
 
 // Define a function named merge that takes in two arguments.
 //    arr1 (array of sorted numbers)
