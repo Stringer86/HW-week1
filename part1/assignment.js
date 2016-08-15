@@ -432,11 +432,8 @@ function leftPad5(word) {
       word = " " + word;
       remainingLength--;
     }
-    return word;
   }
-  else {
-    return word;
-  }
+  return word;
 }
 
 

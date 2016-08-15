@@ -251,8 +251,6 @@ function combine(obj1, obj2) {
   }
   return object3;
 }
-
-
 // Define a function called invert that takes in one argument.
 //    obj (object)
 //

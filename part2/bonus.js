@@ -35,7 +35,7 @@ function bigSum() {
 function pluck(arr, key) {
   var newArr = [];
   for (var i = 0; i < arr.length; i++) {
-    newArr.push(arr[i].name);
+    newArr.push(arr[i][key]);
   }
   return newArr;
 }
@@ -66,7 +66,7 @@ function pick(obj, keys) {
     return obj2;
   }
 
-obj[arr[i][0]] = arr[i][1];
+
 
 // Define a function named merge that takes in two arguments.
 //    arr1 (array of sorted numbers)
